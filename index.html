@@ -1,0 +1,1611 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mohamed Hedi Ben Jedida — Developer Profile</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0a0a0f;
+        --surface: #111118;
+        --surface2: #17171f;
+        --border: #2a2a38;
+        --accent: #6c63ff;
+        --accent2: #ff6584;
+        --accent3: #43e8b0;
+        --text: #e8e8f0;
+        --muted: #7a7a9a;
+        --tag-bg: #1e1e2e;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: 'DM Sans', sans-serif;
+        font-size: 15px;
+        line-height: 1.7;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+        pointer-events: none;
+        z-index: 0;
+        opacity: 0.4;
+      }
+
+      .orb {
+        position: fixed;
+        border-radius: 50%;
+        filter: blur(120px);
+        pointer-events: none;
+        z-index: 0;
+        opacity: 0.18;
+      }
+      .orb-1 {
+        width: 600px;
+        height: 600px;
+        background: var(--accent);
+        top: -200px;
+        left: -150px;
+      }
+      .orb-2 {
+        width: 400px;
+        height: 400px;
+        background: var(--accent2);
+        bottom: 10%;
+        right: -100px;
+      }
+      .orb-3 {
+        width: 300px;
+        height: 300px;
+        background: var(--accent3);
+        top: 50%;
+        left: 40%;
+      }
+
+      .wrapper {
+        position: relative;
+        z-index: 1;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 80px 32px 120px;
+      }
+
+      /* HEADER */
+      header {
+        margin-bottom: 80px;
+        animation: fadeUp 0.8s ease both;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--tag-bg);
+        border: 1px solid var(--border);
+        border-radius: 100px;
+        padding: 6px 16px;
+        font-size: 12px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent3);
+        margin-bottom: 28px;
+        font-weight: 500;
+      }
+      .badge::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent3);
+        box-shadow: 0 0 8px var(--accent3);
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.3;
+        }
+      }
+
+      h1 {
+        font-family: 'Syne', sans-serif;
+        font-size: clamp(36px, 6vw, 60px);
+        font-weight: 800;
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+        margin-bottom: 8px;
+      }
+      h1 span {
+        background: linear-gradient(
+          135deg,
+          var(--accent) 0%,
+          var(--accent2) 50%,
+          var(--accent3) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .role-line {
+        font-size: 16px;
+        color: var(--muted);
+        font-weight: 300;
+        margin-bottom: 36px;
+      }
+      .role-line strong {
+        color: var(--text);
+        font-weight: 500;
+      }
+
+      /* SUMMARY */
+      .summary {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 36px 40px;
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 80px;
+        animation: fadeUp 0.8s 0.1s ease both;
+      }
+      .summary::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          var(--accent),
+          var(--accent2),
+          var(--accent3)
+        );
+      }
+      .section-label {
+        font-family: 'Syne', sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 16px;
+      }
+      .summary p {
+        color: #b0b0cc;
+        font-size: 15px;
+        line-height: 1.85;
+        font-weight: 300;
+      }
+      .summary p + p {
+        margin-top: 14px;
+      }
+      .summary strong {
+        color: var(--text);
+        font-weight: 500;
+      }
+
+      /* PROJECTS HEADER */
+      .projects-header {
+        display: flex;
+        align-items: baseline;
+        gap: 16px;
+        margin-bottom: 36px;
+        animation: fadeUp 0.8s 0.2s ease both;
+      }
+      .projects-header h2 {
+        font-family: 'Syne', sans-serif;
+        font-size: 28px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+      .project-count {
+        font-size: 13px;
+        color: var(--muted);
+        background: var(--tag-bg);
+        border: 1px solid var(--border);
+        border-radius: 100px;
+        padding: 3px 12px;
+      }
+
+      /* CARDS */
+      .projects-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        overflow: hidden;
+        transition:
+          border-color 0.3s ease,
+          box-shadow 0.3s ease;
+        animation: fadeUp 0.6s ease both;
+        position: relative;
+      }
+      .card:hover {
+        border-color: rgba(108, 99, 255, 0.4);
+        box-shadow: 0 12px 40px rgba(108, 99, 255, 0.08);
+      }
+
+      .card-accent {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: linear-gradient(180deg, var(--accent), transparent);
+        border-radius: 3px 0 0 3px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      .card:hover .card-accent {
+        opacity: 1;
+      }
+
+      .card-body {
+        padding: 28px 32px;
+      }
+
+      .card-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 10px;
+      }
+      .card-title {
+        font-family: 'Syne', sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+      }
+
+      .card-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        padding: 5px 12px;
+        border-radius: 100px;
+        cursor: pointer;
+        border: none;
+        font-family: 'DM Sans', sans-serif;
+        transition:
+          background 0.2s,
+          color 0.2s;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+      .btn-preview {
+        background: rgba(67, 232, 176, 0.08);
+        color: var(--accent3);
+        border: 1px solid rgba(67, 232, 176, 0.25);
+      }
+      .btn-preview:hover {
+        background: rgba(67, 232, 176, 0.16);
+      }
+      .btn-preview.active {
+        background: rgba(67, 232, 176, 0.18);
+        border-color: var(--accent3);
+      }
+      .btn-link {
+        background: rgba(108, 99, 255, 0.08);
+        color: var(--accent);
+        border: 1px solid rgba(108, 99, 255, 0.25);
+      }
+      .btn-link:hover {
+        background: rgba(108, 99, 255, 0.16);
+      }
+
+      .card-desc {
+        color: #8888aa;
+        font-size: 14px;
+        margin-bottom: 16px;
+        font-weight: 300;
+        line-height: 1.65;
+      }
+      .card-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+      }
+
+      .tag {
+        font-size: 11.5px;
+        font-weight: 500;
+        padding: 4px 11px;
+        border-radius: 6px;
+        letter-spacing: 0.01em;
+      }
+      .tag-role {
+        background: rgba(108, 99, 255, 0.12);
+        color: #a89fff;
+        border: 1px solid rgba(108, 99, 255, 0.2);
+      }
+      .tag-stack {
+        background: var(--tag-bg);
+        color: var(--muted);
+        border: 1px solid var(--border);
+      }
+      .tag-location {
+        background: rgba(67, 232, 176, 0.08);
+        color: #43e8b0;
+        border: 1px solid rgba(67, 232, 176, 0.2);
+      }
+      .tag-apps {
+        background: rgba(255, 101, 132, 0.08);
+        color: #ff8fa3;
+        border: 1px solid rgba(255, 101, 132, 0.2);
+      }
+
+      /* IFRAME PREVIEW PANEL */
+      .preview-panel {
+        display: none;
+        border-top: 1px solid var(--border);
+        background: #08080e;
+      }
+      .preview-panel.open {
+        display: block;
+        animation: slideDown 0.3s ease;
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .preview-toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 16px;
+        background: var(--surface2);
+        border-bottom: 1px solid var(--border);
+      }
+      .preview-dots {
+        display: flex;
+        gap: 5px;
+        margin-right: 10px;
+      }
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+      }
+      .dot-red {
+        background: #ff5f57;
+      }
+      .dot-yellow {
+        background: #febc2e;
+      }
+      .dot-green {
+        background: #28c840;
+      }
+      .toolbar-left {
+        display: flex;
+        align-items: center;
+      }
+      .preview-url {
+        font-size: 11px;
+        color: var(--muted);
+        font-family: monospace;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 400px;
+      }
+
+      .iframe-wrapper {
+        position: relative;
+        width: 100%;
+        height: 480px;
+      }
+      .iframe-wrapper iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+        background: #fff;
+      }
+
+      .iframe-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        background: #08080e;
+        z-index: 2;
+        transition: opacity 0.4s ease;
+      }
+      .iframe-overlay.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .spinner {
+        width: 32px;
+        height: 32px;
+        border: 2px solid var(--border);
+        border-top-color: var(--accent3);
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .overlay-text {
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .overlay-icon {
+        font-size: 32px;
+      }
+      .overlay-msg {
+        font-size: 13px;
+        color: var(--muted);
+        text-align: center;
+        line-height: 1.7;
+      }
+      .overlay-msg a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      .overlay-msg a:hover {
+        text-decoration: underline;
+      }
+
+      /* ANIMATIONS */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .card:nth-child(1) {
+        animation-delay: 0.05s;
+      }
+      .card:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      .card:nth-child(3) {
+        animation-delay: 0.15s;
+      }
+      .card:nth-child(4) {
+        animation-delay: 0.2s;
+      }
+      .card:nth-child(5) {
+        animation-delay: 0.25s;
+      }
+      .card:nth-child(6) {
+        animation-delay: 0.3s;
+      }
+      .card:nth-child(7) {
+        animation-delay: 0.35s;
+      }
+      .card:nth-child(8) {
+        animation-delay: 0.4s;
+      }
+      .card:nth-child(9) {
+        animation-delay: 0.45s;
+      }
+      .card:nth-child(10) {
+        animation-delay: 0.5s;
+      }
+      .card:nth-child(11) {
+        animation-delay: 0.55s;
+      }
+      .card:nth-child(12) {
+        animation-delay: 0.6s;
+      }
+      .card:nth-child(13) {
+        animation-delay: 0.65s;
+      }
+      .card:nth-child(14) {
+        animation-delay: 0.7s;
+      }
+
+      footer {
+        margin-top: 80px;
+        padding-top: 32px;
+        border-top: 1px solid var(--border);
+        text-align: center;
+        color: var(--muted);
+        font-size: 13px;
+        animation: fadeUp 0.8s 0.8s ease both;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="wrapper">
+      <header>
+        <h1>Mohamed Hedi<br /><span>Ben Jedida</span></h1>
+        <p class="role-line">
+          Software Engineer &nbsp;·&nbsp; <strong>Code700</strong> &nbsp;·&nbsp;
+          Tunisia
+        </p>
+      </header>
+
+      <div class="summary">
+        <div class="section-label">Profile Summary</div>
+        <p>
+          I am a <strong>Software Engineer</strong> with 3–4 years of experience
+          building scalable, user-centric web applications across a wide range
+          of domains — from e-learning and task management to AI-powered tools
+          and CRM systems. Currently based in Tunisia and working at
+          <strong>Code700</strong>, I have contributed to impactful products
+          serving users across Tunisia, Mauritania, and Senegal, taking on roles
+          that span frontend development, full-stack engineering, and technical
+          leadership.
+        </p>
+        <p>
+          I have a strong command of modern frontend technologies including
+          <strong>React.js, Next.js, TypeScript, Redux Toolkit, and SCSS</strong
+          >, complemented by backend experience with
+          <strong>Node.js, FastAPI, NestJS, GraphQL, and MongoDB</strong>.
+          Beyond traditional web development, I have ventured into the AI/ML
+          space — designing a full <strong>RAG pipeline</strong> for an
+          intelligent educational chatbot and building <strong>EquaDoc</strong>,
+          an AI-powered equation extraction tool leveraging Hugging Face models
+          and fine-tuning techniques.
+        </p>
+        <p>
+          In addition to my engineering skills, I have demonstrated leadership
+          as a <strong>Scrum Master and Frontend Team Lead</strong> on
+          large-scale platforms like TakiAcademy and TakanaAcademy, where I
+          coordinated cross-functional teams and drove product delivery. I am
+          now seeking opportunities with
+          <strong>international companies</strong> where I can bring both my
+          technical depth and leadership experience to ambitious, high-impact
+          projects.
+        </p>
+      </div>
+
+      <div class="projects-header">
+        <h2>Projects</h2>
+        <span class="project-count">15 projects</span>
+      </div>
+
+      <div class="projects-grid">
+        <!-- helper macro via JS — each card below -->
+
+        <!-- Ostedhy -->
+        <div class="card">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-top">
+              <div class="card-title">Ostedhy</div>
+              <div class="card-actions">
+                <button
+                  class="btn btn-preview"
+                  onclick="togglePreview(this, 'https://ostedhy.com/ar/')"
+                >
+                  &#9654; Preview
+                </button>
+                <a
+                  href="https://ostedhy.com/ar/"
+                  target="_blank"
+                  class="btn btn-link"
+                  >↗ Visit</a
+                >
+              </div>
+            </div>
+            <p class="card-desc">
+              Online course-selling platform with dedicated portals for
+              administrators, teachers, and students.
+            </p>
+            <div class="card-meta">
+              <span class="tag tag-role">Frontend Developer</span>
+              <span class="tag tag-location">🇹🇳 Tunisia</span>
+              <span class="tag tag-apps">Admin · Student · Teacher</span>
+            </div>
+          </div>
+          <div class="preview-panel">
+            <div class="preview-toolbar">
+              <div class="toolbar-left">
+                <div class="preview-dots">
+                  <div class="dot dot-red"></div>
+                  <div class="dot dot-yellow"></div>
+                  <div class="dot dot-green"></div>
+                </div>
+                <span class="preview-url">https://ostedhy.com/ar/</span>
+              </div>
+              <a
+                href="https://ostedhy.com/ar/"
+                target="_blank"
+                class="btn btn-link"
+                style="font-size: 11px; padding: 3px 10px"
+                >Open in new tab ↗</a
+              >
+            </div>
+            <div class="iframe-wrapper">
+              <div class="iframe-overlay" id="overlay-ostedhy">
+                <div class="spinner"></div>
+                <span class="overlay-text">Loading preview…</span>
+              </div>
+              <iframe
+                data-src="https://ostedhy.com/ar/"
+                onload="
+                  onFrameLoad(
+                    this,
+                    'overlay-ostedhy',
+                    'https://ostedhy.com/ar/',
+                  )
+                "
+                onerror="
+                  onFrameError(
+                    this,
+                    'overlay-ostedhy',
+                    'https://ostedhy.com/ar/',
+                  )
+                "
+              ></iframe>
+            </div>
+          </div>
+        </div>
+
+        <!-- Imtiez — no public link -->
+        <div class="card">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-top"><div class="card-title">Imtiez</div></div>
+            <p class="card-desc">
+              A full redesign of Ostedhy sharing the same business logic,
+              adapted for the Mauritanian market.
+            </p>
+            <div class="card-meta">
+              <span class="tag tag-role">Frontend Developer</span>
+              <span class="tag tag-location">🇲🇷 Mauritania</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TakiAcademy -->
+        <div class="card">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-top">
+              <div class="card-title">TakiAcademy</div>
+              <div class="card-actions">
+                <button
+                  class="btn btn-preview"
+                  onclick="togglePreview(this, 'https://takiacademy.com/')"
+                >
+                  &#9654; Preview
+                </button>
+                <a
+                  href="https://takiacademy.com/"
+                  target="_blank"
+                  class="btn btn-link"
+                  >↗ Visit</a
+                >
+              </div>
+            </div>
+            <p class="card-desc">
+              Large-scale e-learning platform with multi-role apps for students,
+              teachers, parents, and business accounts.
+            </p>
+            <div class="card-meta">
+              <span class="tag tag-role">Scrum Master</span>
+              <span class="tag tag-role">Frontend Team Lead</span>
+              <span class="tag tag-location">🇹🇳 Tunisia</span>
+              <span class="tag tag-apps"
+                >Admin · Student · Teacher · Parent · Business</span
+              >
+            </div>
+          </div>
+          <div class="preview-panel">
+            <div class="preview-toolbar">
+              <div class="toolbar-left">
+                <div class="preview-dots">
+                  <div class="dot dot-red"></div>
+                  <div class="dot dot-yellow"></div>
+                  <div class="dot dot-green"></div>
+                </div>
+                <span class="preview-url">https://takiacademy.com/</span>
+              </div>
+              <a
+                href="https://takiacademy.com/"
+                target="_blank"
+                class="btn btn-link"
+                style="font-size: 11px; padding: 3px 10px"
+                >Open in new tab ↗</a
+              >
+            </div>
+            <div class="iframe-wrapper">
+              <div class="iframe-overlay" id="overlay-taki">
+                <div class="spinner"></div>
+                <span class="overlay-text">Loading preview…</span>
+              </div>
+              <iframe
+                data-src="https://takiacademy.com/"
+                onload="
+                  onFrameLoad(this, 'overlay-taki', 'https://takiacademy.com/')
+                "
+                onerror="
+                  onFrameError(this, 'overlay-taki', 'https://takiacademy.com/')
+                "
+              ></iframe>
+            </div>
+          </div>
+        </div>
+
+        <!-- TakanaAcademy -->
+        <div class="card">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-top">
+              <div class="card-title">TakanaAcademy</div>
+              <div class="card-actions">
+                <button
+                  class="btn btn-preview"
+                  onclick="togglePreview(this, 'https://takanaacademy.com/')"
+                >
+                  &#9654; Preview
+                </button>
+                <a
+                  href="https://takanaacademy.com/"
+                  target="_blank"
+                  class="btn btn-link"
+                  >↗ Visit</a
+                >
+              </div>
+            </div>
+            <p class="card-desc">
+              Redesign of TakiAcademy tailored for the Senegalese market,
+              maintaining the same platform architecture.
+            </p>
+            <div class="card-meta">
+              <span class="tag tag-role">Scrum Master</span>
+              <span class="tag tag-role">Frontend Team Lead</span>
+              <span class="tag tag-location">🇸🇳 Senegal</span>
+            </div>
+          </div>
+          <div class="preview-panel">
+            <div class="preview-toolbar">
+              <div class="toolbar-left">
+                <div class="preview-dots">
+                  <div class="dot dot-red"></div>
+                  <div class="dot dot-yellow"></div>
+                  <div class="dot dot-green"></div>
+                </div>
+                <span class="preview-url">https://takanaacademy.com/</span>
+              </div>
+              <a
+                href="https://takanaacademy.com/"
+                target="_blank"
+                class="btn btn-link"
+                style="font-size: 11px; padding: 3px 10px"
+                >Open in new tab ↗</a
+              >
+            </div>
+            <div class="iframe-wrapper">
+              <div class="iframe-overlay" id="overlay-takana">
+                <div class="spinner"></div>
+                <span class="overlay-text">Loading preview…</span>
+              </div>
+              <iframe
+                data-src="https://takanaacademy.com/"
+                onload="
+                  onFrameLoad(
+                    this,
+                    'overlay-takana',
+                    'https://takanaacademy.com/',
+                  )
+                "
+                onerror="
+                  onFrameError(
+                    this,
+                    'overlay-takana',
+                    'https://takanaacademy.com/',
+                  )
+                "
+              ></iframe>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAM -->
+        <div class="card">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-top">
+              <div class="card-title">TAM — Task Management Platform</div>
+              <div class="card-actions">
+                <button
+                  class="btn btn-preview"
+                  onclick="togglePreview(this, 'https://www.tamdone.com/')"
+                >
+                  &#9654; Preview
+                </button>
+                <a
+                  href="https://www.tamdone.com/"
+                  target="_blank"
+                  class="btn btn-link"
+                  >↗ Visit</a
+                >
+              </div>
+            </div>
+            <p class="card-desc">
+              A productivity-focused task management platform built for teams,
+              featuring a clean and responsive UI.
+            </p>
+            <div class="card-meta">
+              <span class="tag tag-role">Frontend Developer</span>
+              <span class="tag tag-stack">React</span>
+              <span class="tag tag-stack">TypeScript</span>
+              <span class="tag tag-stack">React Query</span>
+              <span class="tag tag-stack">SCSS</span>
+            </div>
+          </div>
+          <div class="preview-panel">
+            <div class="preview-toolbar">
+              <div class="toolbar-left">
+                <div class="preview-dots">
+                  <div class="dot dot-red"></div>
+                  <div class="dot dot-yellow"></div>
+                  <div class="dot dot-green"></div>
+                </div>
+                <span class="preview-url">https://www.tamdone.com/</span>
+              </div>
+              <a
+                href="https://www.tamdone.com/"
+                target="_blank"
+                class="btn btn-link"
+                style="font-size: 11px; padding: 3px 10px"
+                >Open in new tab ↗</a
+              >
+            </div>
+            <div class="iframe-wrapper">
+              <div class="iframe-overlay" id="overlay-tam">
+                <div class="spinner"></div>
+                <span class="overlay-text">Loading preview…</span>
+              </div>
+              <iframe
+                data-src="https://www.tamdone.com/"
+                onload="
+                  onFrameLoad(this, 'overlay-tam', 'https://www.tamdone.com/')
+                "
+                onerror="
+                  onFrameError(this, 'overlay-tam', 'https://www.tamdone.com/')
+                "
+              ></iframe>
+            </div>
+          </div>
+        </div>
+
+        <!-- Real-Time Analytics Dashboard — internal, no link -->
+        <div class="card">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-top">
+              <div class="card-title">Real-Time Analytics Dashboard</div>
+            </div>
+            <p class="card-desc">
+              Internal analytics dashboard for TakiAcademy featuring live data
+              streaming and interactive reporting for business insights.
+            </p>
+            <div class="card-meta">
+              <span class="tag tag-role">Frontend Team Lead</span>
+              <span class="tag tag-role">Scrum Master</span>
+              <span class="tag tag-stack">React.js</span>
+              <span class="tag tag-stack">Redux Toolkit</span>
+              <span class="tag tag-stack">WebSockets</span>
+              <span class="tag tag-stack">SCSS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Data Extraction Pipeline — internal, no link -->
+        <div class="card">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-top">
+              <div class="card-title">
+                Data Extraction Pipeline & RAG Chatbot
+              </div>
+            </div>
+            <p class="card-desc">
+              Extracted data from TakiAcademy videos and magazines and built an
+              end-to-end infrastructure powering a RAG pipeline — enabling an
+              intelligent chatbot capable of understanding the Tunisian
+              educational curriculum.
+            </p>
+            <div class="card-meta">
+              <span class="tag tag-role">Team Lead</span>
+              <span class="tag tag-role">Architecture Designer</span>
+              <span class="tag tag-stack">FastAPI</span>
+              <span class="tag tag-stack">Python</span>
+              <span class="tag tag-stack">LangChain</span>
+              <span class="tag tag-stack">RAG</span>
+              <span class="tag tag-stack">Vector Store</span>
+              <span class="tag tag-stack">React</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- EquaDoc -->
+        <div class="card">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-top">
+              <div class="card-title">EquaDoc</div>
+              <div class="card-actions">
+                <button
+                  class="btn btn-preview"
+                  onclick="
+                    togglePreview(
+                      this,
+                      'https://equadoc.softylines.com/auth/login',
+                    )
+                  "
+                >
+                  &#9654; Preview
+                </button>
+                <a
+                  href="https://equadoc.softylines.com/auth/login"
+                  target="_blank"
+                  class="btn btn-link"
+                  >↗ Visit</a
+                >
+              </div>
+            </div>
+            <p class="card-desc">
+              AI-powered application that extracts mathematical equations from
+              printed and handwritten papers, helping teachers easily build
+              exams and exercises.
+            </p>
+            <div class="card-meta">
+              <span class="tag tag-role">Full-Stack Developer</span>
+              <span class="tag tag-stack">FastAPI</span>
+              <span class="tag tag-stack">Elasticsearch</span>
+              <span class="tag tag-stack">Hugging Face</span>
+              <span class="tag tag-stack">Model Fine-Tuning</span>
+              <span class="tag tag-stack">React.js</span>
+              <span class="tag tag-stack">PostgreSQL</span>
+            </div>
+          </div>
+          <div class="preview-panel">
+            <div class="preview-toolbar">
+              <div class="toolbar-left">
+                <div class="preview-dots">
+                  <div class="dot dot-red"></div>
+                  <div class="dot dot-yellow"></div>
+                  <div class="dot dot-green"></div>
+                </div>
+                <span class="preview-url"
+                  >https://equadoc.softylines.com/auth/login</span
+                >
+              </div>
+              <a
+                href="https://equadoc.softylines.com/auth/login"
+                target="_blank"
+                class="btn btn-link"
+                style="font-size: 11px; padding: 3px 10px"
+                >Open in new tab ↗</a
+              >
+            </div>
+            <div class="iframe-wrapper">
+              <div class="iframe-overlay" id="overlay-equadoc">
+                <div class="spinner"></div>
+                <span class="overlay-text">Loading preview…</span>
+              </div>
+              <iframe
+                data-src="https://equadoc.softylines.com/auth/login"
+                onload="
+                  onFrameLoad(
+                    this,
+                    'overlay-equadoc',
+                    'https://equadoc.softylines.com/auth/login',
+                  )
+                "
+                onerror="
+                  onFrameError(
+                    this,
+                    'overlay-equadoc',
+                    'https://equadoc.softylines.com/auth/login',
+                  )
+                "
+              ></iframe>
+            </div>
+          </div>
+        </div>
+
+        <!-- Loqman -->
+        <div class="card">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-top">
+              <div class="card-title">Loqman</div>
+              <div class="card-actions">
+                <button
+                  class="btn btn-preview"
+                  onclick="togglePreview(this, 'https://loqman.io/ar')"
+                >
+                  &#9654; Preview
+                </button>
+                <a
+                  href="https://loqman.io/ar"
+                  target="_blank"
+                  class="btn btn-link"
+                  >↗ Visit</a
+                >
+              </div>
+            </div>
+            <p class="card-desc">
+              Consultation management platform connecting consultants and users
+              for seamless professional advisory sessions.
+            </p>
+            <div class="card-meta">
+              <span class="tag tag-stack">Web Platform</span>
+            </div>
+          </div>
+          <div class="preview-panel">
+            <div class="preview-toolbar">
+              <div class="toolbar-left">
+                <div class="preview-dots">
+                  <div class="dot dot-red"></div>
+                  <div class="dot dot-yellow"></div>
+                  <div class="dot dot-green"></div>
+                </div>
+                <span class="preview-url">https://loqman.io/ar</span>
+              </div>
+              <a
+                href="https://loqman.io/ar"
+                target="_blank"
+                class="btn btn-link"
+                style="font-size: 11px; padding: 3px 10px"
+                >Open in new tab ↗</a
+              >
+            </div>
+            <div class="iframe-wrapper">
+              <div class="iframe-overlay" id="overlay-loqman">
+                <div class="spinner"></div>
+                <span class="overlay-text">Loading preview…</span>
+              </div>
+              <iframe
+                data-src="https://loqman.io/ar"
+                onload="
+                  onFrameLoad(this, 'overlay-loqman', 'https://loqman.io/ar')
+                "
+                onerror="
+                  onFrameError(this, 'overlay-loqman', 'https://loqman.io/ar')
+                "
+              ></iframe>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kolct -->
+        <div class="card">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-top">
+              <div class="card-title">Kolct</div>
+              <div class="card-actions">
+                <button
+                  class="btn btn-preview"
+                  onclick="togglePreview(this, 'https://kolct.com/en')"
+                >
+                  &#9654; Preview
+                </button>
+                <a
+                  href="https://kolct.com/en"
+                  target="_blank"
+                  class="btn btn-link"
+                  >↗ Visit</a
+                >
+              </div>
+            </div>
+            <p class="card-desc">
+              A card-selling platform with a clean and fast shopping experience.
+            </p>
+            <div class="card-meta">
+              <span class="tag tag-role">Frontend Developer</span>
+              <span class="tag tag-stack">React.js</span>
+              <span class="tag tag-stack">Next.js</span>
+            </div>
+          </div>
+          <div class="preview-panel">
+            <div class="preview-toolbar">
+              <div class="toolbar-left">
+                <div class="preview-dots">
+                  <div class="dot dot-red"></div>
+                  <div class="dot dot-yellow"></div>
+                  <div class="dot dot-green"></div>
+                </div>
+                <span class="preview-url">https://kolct.com/en</span>
+              </div>
+              <a
+                href="https://kolct.com/en"
+                target="_blank"
+                class="btn btn-link"
+                style="font-size: 11px; padding: 3px 10px"
+                >Open in new tab ↗</a
+              >
+            </div>
+            <div class="iframe-wrapper">
+              <div class="iframe-overlay" id="overlay-kolct">
+                <div class="spinner"></div>
+                <span class="overlay-text">Loading preview…</span>
+              </div>
+              <iframe
+                data-src="https://kolct.com/en"
+                onload="
+                  onFrameLoad(this, 'overlay-kolct', 'https://kolct.com/en')
+                "
+                onerror="
+                  onFrameError(this, 'overlay-kolct', 'https://kolct.com/en')
+                "
+              ></iframe>
+            </div>
+          </div>
+        </div>
+
+        <!-- Al-Furaih -->
+        <div class="card">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-top">
+              <div class="card-title">Al-Furaih Platform</div>
+              <div class="card-actions">
+                <button
+                  class="btn btn-preview"
+                  onclick="
+                    togglePreview(this, 'https://admin.alfuraih.com/login')
+                  "
+                >
+                  &#9654; Preview
+                </button>
+                <a
+                  href="https://admin.alfuraih.com/login"
+                  target="_blank"
+                  class="btn btn-link"
+                  >↗ Visit</a
+                >
+              </div>
+            </div>
+            <p class="card-desc">
+              Business consultation platform providing structured advisory
+              services through an admin interface.
+            </p>
+            <div class="card-meta">
+              <span class="tag tag-role">Frontend Developer</span>
+              <span class="tag tag-stack">React</span>
+              <span class="tag tag-stack">TypeScript</span>
+              <span class="tag tag-stack">RTK Query</span>
+              <span class="tag tag-stack">SCSS</span>
+            </div>
+          </div>
+          <div class="preview-panel">
+            <div class="preview-toolbar">
+              <div class="toolbar-left">
+                <div class="preview-dots">
+                  <div class="dot dot-red"></div>
+                  <div class="dot dot-yellow"></div>
+                  <div class="dot dot-green"></div>
+                </div>
+                <span class="preview-url"
+                  >https://admin.alfuraih.com/login</span
+                >
+              </div>
+              <a
+                href="https://admin.alfuraih.com/login"
+                target="_blank"
+                class="btn btn-link"
+                style="font-size: 11px; padding: 3px 10px"
+                >Open in new tab ↗</a
+              >
+            </div>
+            <div class="iframe-wrapper">
+              <div class="iframe-overlay" id="overlay-alfuraih">
+                <div class="spinner"></div>
+                <span class="overlay-text">Loading preview…</span>
+              </div>
+              <iframe
+                data-src="https://admin.alfuraih.com/login"
+                onload="
+                  onFrameLoad(
+                    this,
+                    'overlay-alfuraih',
+                    'https://admin.alfuraih.com/login',
+                  )
+                "
+                onerror="
+                  onFrameError(
+                    this,
+                    'overlay-alfuraih',
+                    'https://admin.alfuraih.com/login',
+                  )
+                "
+              ></iframe>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lagha Shop -->
+        <div class="card">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-top">
+              <div class="card-title">Lagha Shop</div>
+              <div class="card-actions">
+                <button
+                  class="btn btn-preview"
+                  onclick="togglePreview(this, 'https://lagha.shop/')"
+                >
+                  &#9654; Preview
+                </button>
+                <a
+                  href="https://lagha.shop/"
+                  target="_blank"
+                  class="btn btn-link"
+                  >↗ Visit</a
+                >
+              </div>
+            </div>
+            <p class="card-desc">
+              Full-featured cosmetics e-commerce platform with product catalog,
+              cart, and order management.
+            </p>
+            <div class="card-meta">
+              <span class="tag tag-role">Full-Stack Developer</span>
+              <span class="tag tag-stack">React.js</span>
+              <span class="tag tag-stack">Node.js</span>
+              <span class="tag tag-stack">MongoDB</span>
+              <span class="tag tag-stack">Express</span>
+            </div>
+          </div>
+          <div class="preview-panel">
+            <div class="preview-toolbar">
+              <div class="toolbar-left">
+                <div class="preview-dots">
+                  <div class="dot dot-red"></div>
+                  <div class="dot dot-yellow"></div>
+                  <div class="dot dot-green"></div>
+                </div>
+                <span class="preview-url">https://lagha.shop/</span>
+              </div>
+              <a
+                href="https://lagha.shop/"
+                target="_blank"
+                class="btn btn-link"
+                style="font-size: 11px; padding: 3px 10px"
+                >Open in new tab ↗</a
+              >
+            </div>
+            <div class="iframe-wrapper">
+              <div class="iframe-overlay" id="overlay-lagha">
+                <div class="spinner"></div>
+                <span class="overlay-text">Loading preview…</span>
+              </div>
+              <iframe
+                data-src="https://lagha.shop/"
+                onload="
+                  onFrameLoad(this, 'overlay-lagha', 'https://lagha.shop/')
+                "
+                onerror="
+                  onFrameError(this, 'overlay-lagha', 'https://lagha.shop/')
+                "
+              ></iframe>
+            </div>
+          </div>
+        </div>
+
+        <!-- Xthons -->
+        <div class="card">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-top">
+              <div class="card-title">Xthons</div>
+              <div class="card-actions">
+                <button
+                  class="btn btn-preview"
+                  onclick="togglePreview(this, 'https://xthons.com/en')"
+                >
+                  &#9654; Preview
+                </button>
+                <a
+                  href="https://xthons.com/en"
+                  target="_blank"
+                  class="btn btn-link"
+                  >↗ Visit</a
+                >
+              </div>
+            </div>
+            <p class="card-desc">
+              Innovation program management platform designed to streamline the
+              lifecycle of hackathons and innovation initiatives.
+            </p>
+            <div class="card-meta">
+              <span class="tag tag-role">Frontend Developer</span>
+              <span class="tag tag-stack">React</span>
+              <span class="tag tag-stack">TypeScript</span>
+              <span class="tag tag-stack">Redux</span>
+              <span class="tag tag-stack">SCSS</span>
+            </div>
+          </div>
+          <div class="preview-panel">
+            <div class="preview-toolbar">
+              <div class="toolbar-left">
+                <div class="preview-dots">
+                  <div class="dot dot-red"></div>
+                  <div class="dot dot-yellow"></div>
+                  <div class="dot dot-green"></div>
+                </div>
+                <span class="preview-url">https://xthons.com/en</span>
+              </div>
+              <a
+                href="https://xthons.com/en"
+                target="_blank"
+                class="btn btn-link"
+                style="font-size: 11px; padding: 3px 10px"
+                >Open in new tab ↗</a
+              >
+            </div>
+            <div class="iframe-wrapper">
+              <div class="iframe-overlay" id="overlay-xthons">
+                <div class="spinner"></div>
+                <span class="overlay-text">Loading preview…</span>
+              </div>
+              <iframe
+                data-src="https://xthons.com/en"
+                onload="
+                  onFrameLoad(this, 'overlay-xthons', 'https://xthons.com/en')
+                "
+                onerror="
+                  onFrameError(this, 'overlay-xthons', 'https://xthons.com/en')
+                "
+              ></iframe>
+            </div>
+          </div>
+        </div>
+
+        <!-- SysBrilliance — no public link -->
+        <div class="card">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-top">
+              <div class="card-title">SysBrilliance</div>
+            </div>
+            <p class="card-desc">
+              Customer Relationship Management (CRM) application for tracking
+              client interactions and managing business relationships.
+            </p>
+            <div class="card-meta">
+              <span class="tag tag-role">Full-Stack Developer</span>
+              <span class="tag tag-stack">React</span>
+              <span class="tag tag-stack">NestJS</span>
+              <span class="tag tag-stack">GraphQL</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tej — Club Management App -->
+        <div class="card">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-top">
+              <div class="card-title">Tej — Club Management App</div>
+              <div class="card-actions">
+                <button
+                  class="btn btn-preview"
+                  onclick="
+                    togglePreview(this, 'https://member.ntaj.me/auth/login')
+                  "
+                >
+                  &#9654; Preview
+                </button>
+                <a
+                  href="https://member.ntaj.me/auth/login"
+                  target="_blank"
+                  class="btn btn-link"
+                  >↗ Visit</a
+                >
+              </div>
+            </div>
+            <p class="card-desc">
+              Club management platform for handling member access and
+              operations.
+            </p>
+            <div class="card-meta">
+              <span class="tag tag-role">Frontend Developer</span>
+              <span class="tag tag-stack">React</span>
+              <span class="tag tag-stack">Redux</span>
+              <span class="tag tag-stack">SCSS</span>
+            </div>
+          </div>
+          <div class="preview-panel">
+            <div class="preview-toolbar">
+              <div class="toolbar-left">
+                <div class="preview-dots">
+                  <div class="dot dot-red"></div>
+                  <div class="dot dot-yellow"></div>
+                  <div class="dot dot-green"></div>
+                </div>
+                <span class="preview-url"
+                  >https://member.ntaj.me/auth/login</span
+                >
+              </div>
+              <a
+                href="https://member.ntaj.me/auth/login"
+                target="_blank"
+                class="btn btn-link"
+                style="font-size: 11px; padding: 3px 10px"
+                >Open in new tab ↗</a
+              >
+            </div>
+            <div class="iframe-wrapper">
+              <div class="iframe-overlay" id="overlay-tej">
+                <div class="spinner"></div>
+                <span class="overlay-text">Loading preview…</span>
+              </div>
+              <iframe
+                data-src="https://member.ntaj.me/auth/login"
+                onload="
+                  onFrameLoad(
+                    this,
+                    'overlay-tej',
+                    'https://member.ntaj.me/auth/login',
+                  )
+                "
+                onerror="
+                  onFrameError(
+                    this,
+                    'overlay-tej',
+                    'https://member.ntaj.me/auth/login',
+                  )
+                "
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <p>
+          Mohamed Hedi Ben Jedida &nbsp;·&nbsp; Software Engineer &nbsp;·&nbsp;
+          Tunisia
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      function togglePreview(btn, url) {
+        const card = btn.closest('.card');
+        const panel = card.querySelector('.preview-panel');
+        const isOpen = panel.classList.contains('open');
+
+        if (isOpen) {
+          panel.classList.remove('open');
+          btn.textContent = '▶ Preview';
+          btn.classList.remove('active');
+          // Unload iframe
+          const iframe = panel.querySelector('iframe');
+          iframe.src = 'about:blank';
+          // Reset overlay
+          const overlay = panel.querySelector('.iframe-overlay');
+          overlay.innerHTML =
+            '<div class="spinner"></div><span class="overlay-text">Loading preview…</span>';
+          overlay.classList.remove('hidden');
+          return;
+        }
+
+        panel.classList.add('open');
+        btn.textContent = '▼ Hide';
+        btn.classList.add('active');
+
+        const iframe = panel.querySelector('iframe');
+        const dataSrc = iframe.getAttribute('data-src');
+        if (
+          dataSrc &&
+          (!iframe.src ||
+            iframe.src === 'about:blank' ||
+            iframe.src === window.location.href)
+        ) {
+          iframe.src = dataSrc;
+        }
+
+        // Fallback timeout — if iframe doesn't fire onload in 9s, show blocked notice
+        const overlayId = panel.querySelector('.iframe-overlay').id;
+        setTimeout(() => {
+          const overlay = document.getElementById(overlayId);
+          if (overlay && !overlay.classList.contains('hidden')) {
+            showBlocked(overlay, url);
+          }
+        }, 9000);
+      }
+
+      function onFrameLoad(iframe, overlayId, url) {
+        const overlay = document.getElementById(overlayId);
+        if (!overlay) return;
+        // Try to detect X-Frame-Options block: iframe loads but content is empty
+        try {
+          const doc = iframe.contentDocument || iframe.contentWindow.document;
+          if (
+            !doc ||
+            doc.body === null ||
+            (doc.body && doc.body.innerHTML.trim() === '')
+          ) {
+            showBlocked(overlay, url);
+            return;
+          }
+        } catch (e) {
+          // Cross-origin access blocked = site loaded fine in iframe; hide overlay
+        }
+        overlay.classList.add('hidden');
+      }
+
+      function onFrameError(iframe, overlayId, url) {
+        const overlay = document.getElementById(overlayId);
+        if (overlay) showBlocked(overlay, url);
+      }
+
+      function showBlocked(overlay, url) {
+        overlay.classList.remove('hidden');
+        overlay.innerHTML = `
+      <div class="overlay-icon">🔒</div>
+      <div class="overlay-msg">
+        This site prevents embedding in iframes.<br/>
+        <a href="${url}" target="_blank">Open in a new tab →</a>
+      </div>`;
+      }
+    </script>
+  </body>
+</html>
