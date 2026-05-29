@@ -416,6 +416,101 @@
         font-family: monospace;
       }
 
+      /* MENTORING */
+      .mentor-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 32px 36px;
+        position: relative;
+        overflow: hidden;
+      }
+      .mentor-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--accent3), var(--accent));
+      }
+      .mentor-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-bottom: 14px;
+      }
+      .mentor-title {
+        font-family: 'Syne', sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+      }
+      .mentor-title .tl-company {
+        color: var(--accent3);
+        font-weight: 500;
+      }
+      .mentor-desc {
+        color: #9494b3;
+        font-size: 14.5px;
+        font-weight: 300;
+        line-height: 1.75;
+        margin-bottom: 8px;
+      }
+      .path {
+        margin-top: 22px;
+        padding-top: 22px;
+        border-top: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+      .path-level {
+        position: relative;
+        padding-left: 18px;
+      }
+      .path-level::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 4px;
+        bottom: 4px;
+        width: 3px;
+        border-radius: 3px;
+      }
+      .path-level.lv1::before {
+        background: var(--accent3);
+      }
+      .path-level.lv2::before {
+        background: var(--accent);
+      }
+      .path-level.lv3::before {
+        background: var(--accent2);
+      }
+      .path-label {
+        font-family: 'Syne', sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 9px;
+      }
+      .path-level.lv1 .path-label {
+        color: var(--accent3);
+      }
+      .path-level.lv2 .path-label {
+        color: #a89fff;
+      }
+      .path-level.lv3 .path-label {
+        color: #ff8fa3;
+      }
+      .path-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+      }
+
       /* PROJECTS HEADER */
       .projects-header {
         display: flex;
@@ -1042,6 +1137,75 @@
             <div class="edu-deg">Baccalaureate — Computer Science</div>
             <div class="edu-school">Lycée Othman Chatti, Msaken</div>
             <div class="edu-date">2018 – 2019</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h2>Mentoring &amp; Teaching</h2>
+        <div class="mentor-card">
+          <div class="mentor-head">
+            <div class="mentor-title">
+              AI Mentor &amp; Instructor
+              <span class="tl-company"
+                >·
+                <a href="https://softyskills.com/fr" target="_blank"
+                  >SoftySkills</a
+                ></span
+              >
+            </div>
+            <a
+              href="https://www.linkedin.com/company/softyskills/"
+              target="_blank"
+              class="btn btn-link"
+              >in LinkedIn ↗</a
+            >
+          </div>
+          <p class="mentor-desc">
+            I mentor and teach Artificial Intelligence end-to-end at
+            <strong>SoftySkills</strong> — guiding learners from their very first
+            ML concepts all the way to advanced deep learning, fine-tuning, and
+            RAG. I design the curriculum, run hands-on sessions, and coach
+            beginners until they can build and ship real AI projects on their
+            own.
+          </p>
+
+          <div class="path">
+            <div class="path-level lv1">
+              <div class="path-label">① Foundations — Classical ML</div>
+              <div class="path-chips">
+                <span class="skill-chip">AI Concepts</span>
+                <span class="skill-chip">Machine Learning Basics</span>
+                <span class="skill-chip">Decision Trees</span>
+                <span class="skill-chip">Random Forest</span>
+                <span class="skill-chip">K-Nearest Neighbors (KNN)</span>
+                <span class="skill-chip">Regression &amp; Classification</span>
+                <span class="skill-chip">Model Evaluation</span>
+              </div>
+            </div>
+
+            <div class="path-level lv2">
+              <div class="path-label">② Neural Networks</div>
+              <div class="path-chips">
+                <span class="skill-chip">Neural Network Fundamentals</span>
+                <span class="skill-chip">CNN</span>
+                <span class="skill-chip">RNN</span>
+                <span class="skill-chip">Backpropagation</span>
+                <span class="skill-chip">Computer Vision</span>
+              </div>
+            </div>
+
+            <div class="path-level lv3">
+              <div class="path-label">③ Advanced — Deep Learning &amp; LLMs</div>
+              <div class="path-chips">
+                <span class="skill-chip hot">Deep Learning</span>
+                <span class="skill-chip hot">Fine-Tuning</span>
+                <span class="skill-chip hot">RAG</span>
+                <span class="skill-chip hot">LLM Integration</span>
+                <span class="skill-chip hot">Embeddings &amp; Vector Stores</span>
+                <span class="skill-chip hot">Transformers</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
